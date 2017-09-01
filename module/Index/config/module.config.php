@@ -47,6 +47,20 @@ return [
                     ],
                 ],
             ],
+            'authIndex' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/auth[/:action][/]',
+                    'constraints' => array(
+                        'name' => '[a-zA-Z0-9_-]*'
+                    ),
+                    'defaults' => [
+                        'module' => 'Index',
+                        'controller'    => 'Index\Controller\Auth',
+                        'action'        => 'index',
+                    ],
+                ],
+            ],
 //            'news' => [
 //                'type'    => Segment::class,
 //                'options' => [
@@ -79,7 +93,8 @@ return [
     'controllers' => [
         'invokables' => array(
             'Index\Controller\Index' => 'Index\Controller\IndexController',
-            'Index\Controller\File' => 'Index\Controller\FileController'
+            'Index\Controller\File' => 'Index\Controller\FileController',
+            'Index\Controller\Auth' => 'Index\Controller\AuthController'
         )
     ],
     'module_layouts' => array(
